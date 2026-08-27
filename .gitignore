@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+*.log
+.DS_Store
+src/public/ort/*.wasm
+启动日志.txt
+*.lnk
+

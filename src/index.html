@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <base href="/" />
+    <title>中英互译</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="header-row">
+          <h1>中英互译</h1>
+          <div class="app-actions pc-only">
+            <button type="button" id="restart-app">重启</button>
+            <button type="button" id="quit-app">关闭</button>
+          </div>
+        </div>
+        <p id="subtitle">点开始后一直听。说中文读英文，说英文读中文。</p>
+      </header>
+
+      <section class="phone-share hidden" id="phone-share">
+        <h2>出门用 iPhone 耳机</h2>
+        <p>电脑保持开机、不要休眠。扫码后会先停在相机里，请点「在 Safari 中打开」，再允许麦克风。不要停在相机预览里。</p>
+        <img id="phone-qr" alt="手机二维码" hidden />
+        <p class="phone-url" id="phone-url">正在开通外网地址…</p>
+        <button type="button" id="copy-phone-url">复制链接</button>
+      </section>
+
+      <section class="setup" id="setup">
+        <label for="api-key">DeepSeek API Key</label>
+        <div class="key-row">
+          <input id="api-key" type="password" placeholder="sk-..." autocomplete="off" />
+          <button id="save-key" type="button">保存</button>
+        </div>
+      </section>
+
+      <section class="devices">
+        <label class="pc-only">
+          麦克风
+          <select id="mic"></select>
+        </label>
+        <label class="pc-only">
+          扬声器
+          <select id="speaker"></select>
+        </label>
+        <div class="clone-key pc-only">
+          <label for="clone-speaker">豆包语音合成 2.0 Access Token</label>
+          <div class="key-row">
+            <input id="clone-speaker" type="text" placeholder="点小眼睛复制 Access Token" autocomplete="off" />
+            <button id="save-clone" type="button">保存</button>
+          </div>
+        </div>
+        <label>
+          中文音色
+          <select id="zh-voice"></select>
+        </label>
+        <label>
+          英文音色
+          <select id="en-voice"></select>
+        </label>
+        <div class="meter" aria-hidden="true"><div id="meter-bar"></div></div>
+      </section>
+
+      <main id="log" class="log"></main>
+      <p id="status" class="status">准备中…</p>
+
+      <button id="talk-btn" class="talk" type="button" disabled>开始说话</button>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
